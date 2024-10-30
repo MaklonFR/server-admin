@@ -69,12 +69,6 @@ def logout():
 def main():
     return render_template("login.html")
 
-@app.route('/protected-route', methods=['GET'])
-@jwt_required()  # Proteksi rute dengan JWT
-def protected_route():
-    current_user = get_jwt_identity()  # Dapatkan informasi pengguna dari token
-    return jsonify(message=f"Welcome {current_user['username']}!")
-
 @app.route ('/home')
 def home():
     return render_template("index.html")
