@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% block title %}Halaman Dashboard Satu{% endblock %}
+
+{% block content %}
+        <div class="container-fluid">
+            <div class="page-title">
+              <div class="row">
+                <div class="col-sm-6 col-12">
+                  <h2>Add Product</h2>
+                </div>
+                <div class="col-sm-6 col-12">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb">&nbsp Form &nbsp / &nbsp</li>
+                    <li class="breadcrumb-item active">Product</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="container-fluid">
+            <div class="row">
+              <div class="col-12">
+                <div class="card masks-input">
+                  <div class="card-header card-no-border pb-0">
+                    <h3>Form Add Product</h3>
+                    <p class="mt-1 mb-0">Silahkan masukan produk yang ada.</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+                      <div class="col-12">
+                        <div class="card-wrapper border rounded-3 light-card checkbox-checked">
+
+                          <form class="row g-3" action="/addProduct" method="post" enctype="multipart/form-data" id="addItemForm">
+                            <div class="col-xxl-4 col-sm-6 mt-3">
+                              <label class="col-form-label" for="name">Nama</label>
+                              <input class="form-control" name="namep" id="name" type="text" placeholder="Masukan Nama Produk">
+                            </div>
+                            <div class="col-xxl-4 col-sm-6 mt-3">
+                              <label class="col-form-label" for="price">Harga</label>
+                              <input class="form-control" id="price" name="price" type="number" placeholder="Masukan Harga Produk">
+                            </div>
+
+                            <div class="col-xxl-4 col-sm-6 mt-3">
+                              <label class="form-label" for="stock">Stok</label>
+                              <input class="form-control" id="stock" name="stock" type="number" placeholder="Masukan Jumlah Stok">
+                            </div>
+
+                            <div class="col-xxl-4 col-sm-6 mt-3">
+                              <label class="form-label" for="image">Gambar Produk</label>
+                              <input class="form-control" name="image" id="image" accept="image/*" type="file" required>                             </div>
+
+                            <div class="col-xxl-4 col-sm-6 mt-3">
+                              <div class="col">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="category">Kategori Produk </label>
+                                    <select class="form-select" name="category" id="category">
+                                      <option></option>
+                                      <option value="Elektronik">Elektronik</option>
+                                      <option value="Fashion">Fashion</option>
+                                      <option value="Kecantikan">Kecantikan</option>
+                                      <option value="Makanan">Makanan & Minuman</option>>
+                                    </select>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-4 col-sm-6 mt-3">
+                              <div class="col">
+                                  <div class="mb-3">
+                                    <label class="form-label" for="status">Status </label>
+                                    <select class="form-select" name="status" id="status">
+                                      <option></option>
+                                      <option value="Publish">Publish</option>
+                                      <option value="Draft">Draft</option>
+                                      <option value="Unpublish">Unpublish</option>
+                                    </select>
+                                  </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xxl-4 col-sm-6 mt-2">
+                              <label class="col-form-label" for="sku">Stock Keeping Unit (SKU)</label>
+                              <input class="form-control" name="sku" id="sku" type="text" placeholder="Masukan SKU">
+                            </div>
+
+                            <div class="col-xxl-4 col-sm-6 mt-2">
+                              <label class="form-label" for="description">Deskripsi</label>
+                              <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                            </div>
+                          <div class="col-sm-12 text-left mt-2">
+                            <button class="btn btn btn-primary me-2" type="submit">Simpan Produk</button>
+                            <a href="/list_products" class="btn btn-secondary" type="submit">Batal</a>
+                          </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}
