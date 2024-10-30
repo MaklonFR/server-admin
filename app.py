@@ -6,6 +6,7 @@ from flask import Flask, request, jsonify, render_template, redirect, url_for, a
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.utils import secure_filename
+from jwt import DecodeError
 from flask_cors import CORS  # Import CORS
 
 # Enable CORS for a specific origin
