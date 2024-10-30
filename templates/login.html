@@ -121,7 +121,7 @@
 
             const data = await response.json();
             if (response.ok) {
-                localStorage.setItem('access_token', data.access_token);  // Save token to localStorage
+                localStorage.setItem('access_token', data.admin);  // Save token to localStorage
                 window.location.href = '/home';  // Redirect to home page
             } else {
                 alert('Login failed: ' + data.msg);
