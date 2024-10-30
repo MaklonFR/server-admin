@@ -1,0 +1,341 @@
+{% extends "base.html" %}
+{% block title %}Dashboard System{% endblock %}
+
+{% block content %}
+
+<!-- Container-fluid starts-->
+<div class="container-fluid dashboard-2">
+
+         <center><div id="loader"></div></center> <!-- Set Loader -->
+
+            <div id="bagian1"> <!-- BAGIAN 1 -->
+               <div class="card-body">
+                      <div class="blog-single">
+                        <div class="blog-box blog-details">
+                            <img class="img-fluid w-100" src="{{ ipserver }}//static/img/koperasi.png" alt="blog-main">
+                        </div></div>
+                    </div>
+            <div class="row">
+              <div class="card-header card-no-border pb-0 text-center">
+                    <h3>KATEGORI PRODUK KAMI</h3>
+              </div>
+
+              <!-- slide 1 -->
+              <div class="col-xxl-2 col-xl-3 col-sm-6 box-col-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="items-slider">
+                      <div class="swiper mySwiper1">
+                        <div class="swiper-wrapper">
+                          <!-- Get DATA -->
+                         {% for product in products %}
+                          {% if product['category'] == "Elektronik" %}
+                          <div class="swiper-slide">
+                            <div class="slider-box bg-light-warning">
+                              <div class="header-top">
+                                  <a href="{{ url_for('api_categories', cat=product['category'])}}"> <!-- link details produk -->
+                                      <div class="badge badge-warning rated-product-badge">{{ product['category'] }}</div>
+                                      <img class="img-fluid" src="{{ ipserver }}/{{ product['image_url']}}" alt=""/>
+                                      <div class="i fa-regular fa-heart"></div>
+                                  </a>
+                                </form>
+                              </div>
+                            </div>
+                            <div class="slider-content text-center">
+                              <h4 class="text-primary">{{product['category']}}</h4>
+                              <p class="mb-0">{{ product['name'] }}</p>
+                              <h6>Rp.&nbsp{{ product['price'] }}</h6>
+                            </div>
+                          </div>
+                            {% endif %}
+                          {% endfor %}
+
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!--Slide 2 -->
+              <div class="col-xxl-2 col-xl-3 col-sm-6 box-col-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="items-slider">
+                      <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+
+                           <!-- Get DATA -->
+                         {% for product in products %}
+                          {% if product['category'] == "Fashion" %}
+                          <div class="swiper-slide">
+                            <div class="slider-box bg-light-warning">
+                              <div class="header-top">
+                                <a href="{{ url_for('api_categories', cat=product['category'])}}"> <!-- link details produk -->
+                                  <div class="badge badge-warning rated-product-badge">{{product['category']}}</div>
+                                  <img class="img-fluid" src="{{ ipserver }}/{{ product['image_url']}}" alt=""/>
+                                  <div class="i fa-regular fa-heart"></div>
+                                </a>
+                              </div>
+                            </div>
+                            <div class="slider-content text-center">
+                              <h4 class="text-primary">{{product['category'] }}</h4>
+                              <p class="mb-0">{{ product['name'] }}</p>
+                              <h6>Rp.&nbsp{{ product['price'] }}</h6>
+                            </div>
+                          </div>
+                            {% endif %}
+                          {% endfor %}
+
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               <div class="col-xxl-2 col-xl-3 col-sm-6 box-col-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="items-slider">
+                      <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+
+                           <!-- Get DATA -->
+                         {% for product in products %}
+                          {% if product['category'] == "Kecantikan" %}
+                          <div class="swiper-slide">
+                            <div class="slider-box bg-light-warning">
+                              <div class="header-top">
+                                <a href="{{ url_for('api_categories', cat=product['category'])}}"> <!-- link details produk -->
+                                  <div class="badge badge-warning rated-product-badge">{{ product['category'] }}</div>
+                                  <img class="img-fluid" src="{{ ipserver }}/{{ product['image_url']}}" alt=""/>
+                                  <div class="i fa-regular fa-heart"></div>
+                                </a>
+                              </div>
+                            </div>
+                            <div class="slider-content text-center">
+                              <h4 class="text-primary">{{product['category'] }}</h4>
+                              <p class="mb-0">{{ product['name'] }}</p>
+                              <h6>Rp.&nbsp{{ product['price'] }}</h6>
+                            </div>
+                          </div>
+                            {% endif %}
+                          {% endfor %}
+
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               <div class="col-xxl-2 col-xl-3 col-sm-6 box-col-6">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="items-slider">
+                      <div class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+
+                           <!-- Get DATA -->
+                         {% for product in products %}
+                          {% if product['category'] == "Makanan" %}
+                          <div class="swiper-slide">
+                            <div class="slider-box bg-light-warning">
+                              <div class="header-top">
+                                <a href="{{ url_for('api_categories', cat=product['category'])}}" > <!-- link details produk -->
+                                  <div class="badge badge-warning rated-product-badge">{{ product['category'] }}</div>
+                                  <img class="img-fluid" src="{{ ipserver }}/{{ product['image_url']}}" alt=""/>
+                                  <div class="i fa-regular fa-heart"></div>
+                                </a>
+                              </div>
+                            </div>
+                            <div class="slider-content text-center">
+                              <h3  class="text-primary">{{product['category'] }}</h3>
+                              <p class="mb-0">{{ product['name'] }}</p>
+                              <h6>Rp.&nbsp{{ product['price'] }}</h6>
+                            </div>
+                          </div>
+                            {% endif %}
+                          {% endfor %}
+
+                        </div>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+
+            <!-- Bagian 2 -->
+            <div id="bagian2">
+            <div class="row">
+              <div class="row">
+               <!-- Grafik 1 -->
+               <div class="col-lg-6 proorder-xxl-6 box-col-12">
+                 <div class="card overflow-hidden">
+                  <div class="card-header card-no-border pb-0 text-center">
+                    <h3>GRAFIK PRESENTASI BULANAN KATEGORI PRODUK</h3>
+                  </div>
+                  <div class="bar-chart-widget">
+                    <div class="bottom-content card-body">
+                      <div class="row">
+                        <div class="col-12">
+                          <div id="chart-widget4"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 proorder-xxl-6 box-col-12">
+                <div class="card growthcard">
+                  <div class="card-header card-no-border pb-0">
+                    <div class="header-top">
+                      <h3>STATISTIK PENGUNJUNG</h3>
+                      <ul class="simple-wrapper nav nav-pills" id="myTab" role="tablist">
+                        <li class="nav-item"><a class="nav-link" id="home-tab" data-bs-toggle="tab" href="#yearly" role="tab" aria-selected="true">Yearly</a></li>
+                        <li class="nav-item"><a class="nav-link" id="profile-tabs" data-bs-toggle="tab" href="#monthly" role="tab" aria-selected="false">Monthly</a></li>
+                        <li class="nav-item"><a class="nav-link active" id="contact-tab" data-bs-toggle="tab" href="#weekly" role="tab" aria-selected="false">Weekly</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="card-body pb-0">
+                    <div id="growth-chart"></div>
+                  </div>
+                </div>
+              </div>
+
+              </div>
+             </div>
+            </div>
+
+            <!-- Bagian 3 -->
+            <div id="bagian3">
+              <div class="row">
+                <div class="col-lg-12 proorder-xxl-6 box-col-12">
+                    <div class="card">
+                      <div class="card-header card-no-border pb-0">
+                          <div class="card-header card-no-border pb-0 text-center"><br><br>
+                            <h3>DATA PRODUK TERJUAL</h3>
+                          </div>
+                      </div>
+                      <div class="card-body transaction-history pt-0">
+                        <div class="table-responsive theme-scrollbar">
+                          <table class="table display table-bordernone" id="transaction" style="width:100%">
+                            <thead>
+                              <tr>
+                                <th>Produk</th>
+                                <th>Kategori</th>
+                                <th>Total Terjual</th>
+                                <th class="text-center">Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            {% for product in products %}
+                              <tr>
+                                <td>
+                                  <div class="d-flex align-items-center gap-3">
+                                    <div class="flex-shrink-0"><img width="50" height="50"  src="http://192.168.100.239:3000/{{ product['image_url']}}" alt=""/></div>
+                                    <div class="flex-grow-1"><a href="#">
+                                        <p>{{ product['name'] }}</p></a>
+                                    </div>
+                                  </div>
+                                </td>
+                                <td>{{ product['category'] }}</td>
+                                <td class="text-success">{{ product['stock'] }}</td>
+                                <td class="text-end">
+                                  <div class="btn bg-light-success border-light-success text-success">Completed</div>
+                                </td>
+                              </tr>
+                              {% endfor %}
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6 proorder-xxl-6 box-col-12">
+
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Bagian 4 -->
+            <div id="bagian4">
+                <div class="row">
+                <div class="card-header card-no-border text-center"> <br><br>
+                    <h3>KONDISI CUACA SAAT INI</h3>
+              </div>
+            <div class="col-xxl-3 col-xl-4 proorder-xxl-11 col-md-6 box-col-6">
+                <div class="card height-equal">
+                  <div class="card-header card-no-border pb-0">
+                  <div class="card-header card-no-border pb-0 text-center">
+                      <h3 >Tekanan</h3>
+                    </div>
+                  </div>
+                  <div class="card-body total-invest">
+                    <div class="row">
+                      <div class="col-6 col-md-12 income-chart">
+                        <div class="Incomechrt" id="Incomechrt"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+               <div class="col-xxl-3 col-xl-4 proorder-xxl-11 col-md-6 box-col-6">
+                <div class="card height-equal">
+                  <div class="card-header card-no-border pb-0">
+                    <div class="card-header card-no-border pb-0 text-center">
+                      <h3 >Kelembapan</h3>
+                    </div>
+                  </div>
+                  <div class="card-body total-invest">
+                    <div class="row">
+                      <div class="col-6 col-md-12 income-chart">
+                        <div class="Incomechrt" id="Incomechrt1"></div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="col-xxl-3 col-xl-4 proorder-xxl-11 col-md-6 box-col-6">
+                <div class="card height-equal">
+                  <div class="card-header card-no-border pb-0">
+                    <div class="card-header card-no-border pb-0 text-center">
+                      <h3 >Tekanan</h3>
+                    </div>
+                  </div>
+                  <div class="card-body total-invest">
+                    <div class="row">
+                      <div class="col-6 col-md-12 income-chart">
+                        <div class="Incomechrt" id="Incomechrt2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+
+
+           </div>
+          </div>
+{% endblock %}

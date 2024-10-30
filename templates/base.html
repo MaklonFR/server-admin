@@ -1,0 +1,113 @@
+<!DOCTYPE html >
+<html lang="en">
+  
+<!-- Mirrored from admin.pixelstrap.net/admiro/template/dashboard-02.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2024 13:00:32 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Admiro admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities."/>
+    <meta name="keywords" content="admin template, Admiro admin template, best javascript admin, dashboard template, bootstrap admin template, responsive admin template, web app"/>
+    <meta name="author" content="pixelstrap"/>
+    <title> {% block title %}{% endblock %} </title>
+     {% include 'includes/styles.html' %}
+    <style>
+        #loader {
+            border: 8px solid #f3f3f3; /* Light gray */
+            border-top: 8px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            display: none; /* Hide initially */
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+  <body>
+    <!-- page-wrapper Start-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i class="iconly-Arrow-Up icli"></i></div>
+    <!-- tap on tap ends-->
+    <!-- loader-->
+    <div class="loader-wrapper">
+      <div class="loader"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="page-wrapper compact-wrapper" id="pageWrapper">
+      <header class="page-header row">
+        <div class="logo-wrapper d-flex align-items-center col-auto"><a href="/">
+          <img class="light-logo img-fluid" src="{{ipserver}}/static/img/logo-mt.png" alt="logo"/>
+        </a><a class="close-btn toggle-sidebar" href="javascript:void(0)">
+            <svg class="svg-color">
+              <use href="..//static/svg/iconly-sprite.svg#Category"></use>
+            </svg></a></div>
+        <div class="page-main-header col">
+          <marquee direction="left"> <h4>Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Otomotif dan Elektronika (BBPPMPV BOE) </h4></marquee>
+          <div class="nav-right">
+           <!--  <div class="form-group-header d-lg-block d-none">
+             <div class="Typeahead Typeahead--twitterUsers">
+                <div class="u-posRelative d-flex align-items-center">
+                  <input class="demo-input py-0 Typeahead-input form-control-plaintext w-100"
+                         type="text" placeholder="Type to Search..." name="q" title=""/>
+                  <i class="search-bg iconly-Search icli"></i>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </header>
+        <div class="page-body">
+          <!-- Start::content pages -->
+          {% block content %}{% endblock %}
+          <!-- Start::content pages -->
+        </div>
+
+
+      </div>
+    <!-- jquery-->
+    {% include 'includes/scripts.html' %}
+
+    <script>
+        const divs = [
+            document.getElementById('bagian1'),
+            document.getElementById('bagian2'),
+            document.getElementById('bagian3'),
+            document.getElementById('bagian4')
+        ];
+
+        let currentIndex = 0;
+
+        function showLoader() {
+            document.getElementById('loader').style.display = 'block';
+            divs.forEach(div => div.style.display = 'none'); // Hide all divs
+        }
+
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+            divs[currentIndex].style.display = 'block'; // Show the current div
+        }
+
+        function toggleDivs() {
+            showLoader(); // Show loader before updating
+            setTimeout(() => {
+                // Hide all divs and then show the current one
+                currentIndex = (currentIndex + 1) % divs.length;
+                hideLoader(); // Hide loader after updating
+            }, 1000); // Simulated loading time of 1 second
+        }
+
+        // Show the first div initially
+        divs[currentIndex].style.display = 'block';
+
+        // Update the divs every 3 seconds (3000 milliseconds)
+        setInterval(toggleDivs, 10000);
+    </script>
+
+
+  </body>
+</html>

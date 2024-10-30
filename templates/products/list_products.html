@@ -1,0 +1,189 @@
+<!DOCTYPE html >
+<html lang="en">
+  
+<!-- Mirrored from admin.pixelstrap.net/admiro/template/product.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Oct 2024 13:00:57 GMT -->
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content="Admiro admin is super flexible, powerful, clean &amp; modern responsive bootstrap 5 admin template with unlimited possibilities."/>
+    <meta name="keywords" content="admin template, Admiro admin template, best javascript admin, dashboard template, bootstrap admin template, responsive admin template, web app"/>
+    <meta name="author" content="pixelstrap"/>
+    <title>Produk Details</title>
+    <!-- Favicon icon-->
+    <link rel="icon" href="{{ ipserver }}/static/assets/images/favicon.png" type="image/x-icon"/>
+    <link rel="shortcut icon" href="{{ ipserver }}/static/assets/images/favicon.png" type="image/x-icon"/>
+    <!-- Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin=""/>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,200;6..12,300;6..12,400;6..12,500;6..12,600;6..12,700;6..12,800;6..12,900;6..12,1000&amp;display=swap" rel="stylesheet"/>
+    <!-- Flag icon css -->
+    <link rel="stylesheet" href="{{ ipserver }}/static/assets/css/vendors/flag-icon.css"/>
+    <!-- iconly-icon-->
+    <link rel="stylesheet" href="{{ ipserver }}/static/assets/css/iconly-icon.css"/>
+    <link rel="stylesheet" href="{{ ipserver }}/static/assets/css/bulk-style.css"/>
+    <!-- iconly-icon-->
+    <link rel="stylesheet" href="{{ ipserver }}/static/assets/css/themify.css"/>
+    <!--fontawesome-->
+    <link rel="stylesheet" href="{{ ipserver }}/static/assets/css/fontawesome-min.css"/>
+    <!-- Whether Icon css-->
+    <link rel="stylesheet" type="text/css" href="{{ ipserver }}/static/assets/css/vendors/weather-icons/weather-icons.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ ipserver }}/static/assets/css/vendors/scrollbar.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ ipserver }}/static/assets/css/vendors/rangeslider/rSlider.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ ipserver }}/static/assets/css/vendors/swiper-bundle.min.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ ipserver }}/static/assets/css/vendors/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ ipserver }}/static/assets/css/vendors/slick-theme.css"/>
+    <!-- App css -->
+    <link rel="stylesheet" href="{{ ipserver }}/static/assets/css/style.css"/>
+    <link id="color" rel="stylesheet" href="{{ ipserver }}/static/assets/css/color-1.css" media="screen"/>
+  </head>
+  <body>
+    <!-- page-wrapper Start-->
+    <!-- tap on top starts-->
+    <div class="tap-top"><i class="iconly-Arrow-Up icli"></i></div>
+    <!-- tap on tap ends-->
+    <!-- loader-->
+    <div class="loader-wrapper">
+      <div class="loader"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="page-wrapper compact-wrapper" id="pageWrapper"> 
+      <header class="page-header row">
+        <div class="logo-wrapper d-flex align-items-center col-auto"><a href="/">
+          <img class="light-logo img-fluid" src="{{ ipserver }}/static/img/logo-mt.png" alt="logo"/>
+        </a><a class="close-btn toggle-sidebar" href="/">
+            <svg class="svg-color">
+              <use href="../static/svg/iconly-sprite.svg#Category"></use>
+            </svg></a></div>
+        <div class="page-main-header col">
+          <marquee direction="left"> <h4>Balai Besar Pengembangan Penjaminan Mutu Pendidikan Vokasi Bidang Otomotif dan Elektronika (BBPPMPV BOE) </h4></marquee>
+          <div class="nav-right">
+          </div>
+        </div>
+      </header>
+
+      <!-- Page Body Start-->
+        <div class="page-body">
+          <div class="container-fluid">
+            <div class="page-title">
+              <div class="row">
+                <div class="col-sm-6 col-12"> 
+                  <h2>Product</h2>
+                </div>
+                <div class="col-sm-6 col-12">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb">ECommerce /&nbsp</li>
+                    <li class="breadcrumb-item active">Product</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Container-fluid starts-->
+          <div class="container-fluid product-wrapper">
+            <div class="product-grid">
+              <div class="product-wrapper-grid">
+                <div class="row list-collection">
+                      <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header border-bottom-0">
+                                <div class="product-box row">
+                                  {% for des in des_product %}
+                                  <div class="product-img col-lg-6">
+                                    <img width="400" height="400" class="class="img-fluid src="{{ ipserver }}/{{ des['image_url']}}" alt=""/></div>
+                                  <div class="product-details col-lg-6 text-start">
+                                    <h4>{{ des['name'] }}</h4>
+                                    <div class="product-price">Rp.&nbsp{{ des['price'] }}
+                                    </div>
+                                    <div class="product-view mt-4">
+                                      <h6 class="f-w-700">Deskripsi Produk</h6>
+                                      <p> {{ des['description'] }}  </p>
+                                    </div>
+                                    <div class="product-qnty mt-4">
+                                      <h6 class="f-w-700">Jumlah</h6>
+                                      <fieldset>
+                                        <div class="input-group">
+                                          <input class="touchspin text-center" type="text" value="1"/>
+                                        </div>
+                                      </fieldset>
+                                      <div class="mt-4">
+                                          <h6 class="f-w-700">Catatan Pesanan</h6>
+                                          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                      </div>
+                                      <div class="addcart-btn">
+                                        <a class="btn btn-primary mt-2 centered" href="#">Pesan sekarang</a>
+                                        <a class="btn btn-warning mt-2 centered" href="{{ url_for('api_categories', cat=des['category'])}}">Batal</a>
+                                    </div>
+                                    <div class="product-size">
+                                    </div>
+                                  </div>
+                                </div>
+                                {% endfor %}
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row"> 
+              <div class="col-md-6 footer-copyright">
+                <p class="mb-0">Copyright 2024 © Flask 2020.</p>
+              </div>
+              <div class="col-md-6">
+                <p class="float-end mb-0">Pemrograman Web Framework
+                  <svg class="svg-color footer-icon">
+                    <use href="{{ ipserver }}/static/svg/iconly-sprite.svg#heart"></use>
+                  </svg>
+                </p>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <!-- jquery-->
+    <script src="{{ ipserver }}/static/assets/js/vendors/jquery/jquery.min.js"></script>
+    <!-- bootstrap js-->
+    <script src="{{ ipserver }}/static/assets/js/vendors/bootstrap/dist/js/bootstrap.bundle.min.js" defer=""></script>
+    <script src="{{ ipserver }}/static/assets/js/vendors/bootstrap/dist/js/popper.min.js" defer=""></script>
+    <!--fontawesome-->
+    <script src="{{ ipserver }}/static/assets/js/vendors/font-awesome/fontawesome-min.js"></script>
+    <!-- feather-->
+    <script src="{{ ipserver }}/static/assets/js/vendors/feather-icon/feather.min.js"></script>
+    <script src="{{ ipserver }}/static/assets/js/vendors/feather-icon/custom-script.js"></script>
+    <!-- sidebar -->
+    <script src="{{ ipserver }}/static/assets/js/sidebar.js"></script>
+    <!-- scrollbar-->
+    <script src="{{ ipserver }}/static/assets/js/scrollbar/simplebar.js"></script>
+    <script src="{{ ipserver }}/static/assets/js/scrollbar/custom.js"></script>
+    <!-- slick-->
+    <script src="{{ ipserver }}/static/assets/js/slick/slick.min.js"></script>
+    <script src="{{ ipserver }}/static/assets/js/slick/slick.js"></script>
+    
+    <!-- touchspin -->
+    <script src="{{ ipserver }}/static/assets/js/touchspin_2/custom_touchspin.js"></script>
+    <!-- swiper-->
+    <script src="{{ ipserver }}/static/assets/js/vendors/swiper/swiper-bundle.min.js"></script>
+    <!-- product_miniswiper-->
+    <script src="{{ ipserver }}/static/assets/js/product/custom-product.js"></script>
+    <!-- Range Slider js-->
+    <script src="{{ ipserver }}/static/assets/js/vendors/range-slider/rSlider.min.js"></script>
+    <script src="{{ ipserver }}/static/assets/js/rangeslider/rangeslider.js"></script>
+    <!-- product_tab-->
+    <script src="{{ ipserver }}/static/assets/js/product/product-tab.js"></script>
+    <!-- touchspin-->
+    <script src="{{ ipserver }}/static/assets/js/touchspin/touchspin.js"></script>
+    <script src="{{ ipserver }}/static/assets/js/touchspin/input-groups.min.js"></script>
+    <!-- theme_customizer-->
+    <script src="{{ ipserver }}/static/assets/js/theme-customizer/customizer.js"></script>
+    <!-- custom script -->
+    <script src="{{ ipserver }}/static/assets/js/script.js"></script>
+  </body>
+
+</html>
