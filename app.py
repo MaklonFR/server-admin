@@ -4,9 +4,7 @@ import sqlite3
 import requests
 from flask import Flask, request, jsonify, render_template, redirect, url_for, abort, session
 from flask_bcrypt import Bcrypt
-from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from werkzeug.utils import secure_filename
-from jwt import DecodeError
 from flask_cors import CORS  # Import CORS
 
 # Enable CORS for a specific origin
@@ -19,10 +17,7 @@ UPLOAD_FOLDER = myserver + 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # Maksimal ukuran file 16 MB
 
-# Konfigurasi JWT
-app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'  # Ganti dengan kunci rahasia JWT Anda
 bcrypt = Bcrypt(app)
-jwt = JWTManager(app)
 
 # Fungsi untuk berinteraksi dengan database SQLite
 def get_db_connection():
@@ -44,9 +39,7 @@ def login():
 
             # Cek username dan password
             if admin and bcrypt.check_password_hash(admin['password'], password):
-                access_token = create_access_token(identity={'username': admin['username']})
-                print("Token: " + access_token)
-                return jsonify(access_token=access_token), 200
+                return jsonify(admin), 200
             return jsonify({"msg": "Login failed"}), 401
         return render_template('login.html')
 
