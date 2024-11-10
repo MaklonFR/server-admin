@@ -1,0 +1,116 @@
+{% extends "base.html" %}
+{% block title %}Halaman Data Kategori{% endblock %}
+
+{% block content %}
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+  <div class="card">
+  </div>
+</div>
+<div class="container-fluid">
+        <div id="flash-messages">
+              {% with messages = get_flashed_messages(with_categories=True) %}
+                  {% if messages %}
+                      {% for cat, message in messages %}
+                          <div hidden="" class="alert alert-{{ cat }}">{{ message }}</div>
+                      {% endfor %}
+                  {% endif %}
+              {% endwith %}
+          </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-header card-no-border pb-0">
+                    <h4>TRANSAKSI PRODUK </h4>
+                    <p class="mt-1 mb-0 text-black">
+                       Silahkan lakukan transaksi produk dengan mengisi kode produk untuk pencarian.
+                      Selanjutnya masukan jumlah produk dijual dan klik tombol proses transaksi. Waktu sekarang (
+                      <code id="date-info"></code> )</p>
+                  </div>
+                  <div class="card-body">
+                    <div class="row g-3">
+                      <div class="col-xl-4 col-md-5">
+                        <div class="card-wrapper border rounded-3 h-100 checkbox-checked">
+                            <form id="searchForm" class="input-group mt-2" >
+                              <input id="sku" name="sku" class="form-control" type="text" placeholder="Masukan kode produk"
+                                     aria-label="Recipient's username" aria-describedby="button-addon2" required>
+                              <button class="btn btn-outline-warning" type="submit">Cari</button>
+                            </form>
+
+                          <div id="form-transaction"> <!-- begin div form-transaction -->
+                            <div class="mt-2">
+                              <input type="number" id="product_id" name="product_id" hidden="">
+                              <ul class="list-group">
+                                <li class="list-group-item alert-light-primary text-black">
+                                 <p id="product-name"></p>
+                                </li>
+                                <li class="list-group-item">Category:
+                                  <span class="badge badge-info label-square">
+                                   <span id="category-product" class="f-10"></span>
+                                  </span>
+                                </li>
+                                <li class="list-group-item">Harga:
+                                  <span class="badge badge-info label-square">
+                                   <span id="product-price" class="f-10"></span>
+                                  </span>
+                                </li>
+                                <li class="list-group-item">Stock:
+                                  <span class="badge badge-info label-square">
+                                   <span id="product-stock" class="f-10"></span>
+                                  </span>
+                                </li>
+                              </ul>
+                            </div>
+
+                            <div class="card-body">
+                              <form id="transactionForm">
+                                <div class="input-group mb-2"> <span class="input-group-text list-light-primary">
+                                  <i class="fa-solid fa-gift text-primary"></i> </span>
+                                  <input class="form-control" type="number" id="quantity" name="quantity"
+                                       placeholder="Masukan jumlah produk" required>
+                                </div>
+                                <div class="row">
+                                  <div class="col">
+                                    <button class="btn btn-info me-3" type="submit">Proses Transaksi</button>
+                                    <button class="btn btn-danger" type="button" onclick="cancelTransaction()">Cancel </button>
+                                  </div>
+                                </div>
+                              </form>
+                            </div>
+                          </div> <!-- end div form-transaction -->
+                          <div id="message" class="text-center text-black"></div>
+
+                        </div>
+                      </div>
+                      <div class="col-xl-8 col-md-7">
+                        <div class="card">
+                          <div class="card-body">
+                            <div class="payment-wrapper">
+                              <button class="btn btn-info me-3 mb-2" type="submit">Cetak</button>
+                              <div class="list-product" style="overflow-x:auto;">
+                                 <table id="transactionsTable">
+                                    <thead>
+                                        <tr>
+                                            <th style="word-wrap: break-word;">Transaction Date</th>
+                                            <th style="word-wrap: break-word;">Product Name</th>
+                                            <th style="word-wrap: break-word;">Quantity</th>
+                                            <th style="word-wrap: break-word;">Total Price</th>
+                                            <th style="word-wrap: break-word;">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="transactionsBody">
+                                        <!-- JavaScript will populate rows here -->
+                                    </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock %}
+

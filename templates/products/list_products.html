@@ -1,0 +1,118 @@
+{% extends "base.html" %}
+{% block title %}Halaman Data Produk{% endblock %}
+
+{% block content %}
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
+            <div class="page-title">
+              <div class="row">
+                <div class="col-sm-6 col-12">
+                  <h2>Daftar Produk</h2>
+                </div>
+                <div class="col-sm-6 col-12">
+                  <ol class="breadcrumb">
+                    <li class="breadcrumb">Tabel &nbsp / &nbsp</li>
+                    <li class="breadcrumb-item active">Produk</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </div>
+<div class="container-fluid">
+          <div id="flash-messages">
+                {% with messages = get_flashed_messages(with_categories=True) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div hidden="" class="alert alert-{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="list-product-header">
+                      <div>
+                        <div class="light-box">
+                          <a data-bs-toggle="collapse" href="#collapseProduct" role="button" aria-expanded="false"
+                             aria-controls="collapseProduct"><i class="filter-icon show" data-feather="filter"></i>
+                            <i class="icon-close filter-close hide"></i></a></div>
+                        <a class="btn btn-primary" href="/add"><i class="fa-solid fa-plus"></i>Add Product</a>
+                      </div>
+
+                    </div>
+                    <div class="list-product">
+                      <table class="table" id="project-status">
+                        <thead>
+                          <tr>
+                            <th>
+                              <div class="form-check">
+                                <input class="form-check-input checkbox-primary" type="checkbox"/>
+                              </div>
+                            </th>
+                            <th> <span class="f-light f-w-600">Product Name</span></th>
+                            <th> <span class="f-light f-w-600">SKU</span></th>
+                            <th> <span class="f-light f-w-600">Category</span></th>
+                            <th> <span class="f-light f-w-600">Price</span></th>
+                            <th> <span class="f-light f-w-600">Qty</span></th>
+                            <th> <span class="f-light f-w-600">Action</span></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {% for product in products %}
+                          <tr class="product-removes">
+                            <td>
+                              <div class="form-check">
+                                <input class="form-check-input checkbox-primary" type="checkbox"/>
+                              </div>
+                            </td>
+                            <td>
+                              <div class="product-names">
+                                <div class="light-product-box">
+                                  <img class="img-fluid" src="../{{product['product_image_url']}}" alt="{{ product['product_name'] }}"></div>
+                                <p>{{ product['product_name'] }}</p>
+                              </div>
+                            </td>
+                            <td>
+                              <p class="f-light">{{ product['product_sku'] }}</p>
+                            </td>
+                            <td>
+                              <p class="f-light">{{ product['category_name'] }}</p>
+                            </td>
+                            <td>
+                              <p class="f-light">{{ product['product_price'] }}</p>
+                            </td>
+                            <td>
+                              <p class="f-light">{{ product['product_stock'] }}</p>
+                            </td>
+                            <td>
+                              <div class="product-action">
+                                <a href="{{ url_for('edit_product', idp=product['product_id']) }}">
+                                  <svg>
+                                    <use  href="../static/svg/icon-sprite.svg#edit-content"></use>
+                                  </svg>
+                                </a>
+                                <form id="delete-form-{{ product['product_id'] }}" action="{{ url_for('delete_product', idp=product['product_id']) }}" method="post" style="display: inline;">
+                                  <a type="button" onclick="confirmDelete({{ product['product_id'] }})">
+                                    <svg>
+                                    <use href="../static/svg/icon-sprite.svg#trash1"></use>
+                                  </svg>
+                                  </a>
+                                </form>
+
+                              </div>
+                            </td>
+
+                          </tr>
+                          {% endfor %}
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+{% endblock %}
+
