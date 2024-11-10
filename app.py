@@ -16,6 +16,7 @@ dtm = datetime.today()
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
+myserver = "https://smkn1kuwus.sch.id/client-koperasi-boe/"
 
 UPLOAD_FOLDER = 'static/uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
